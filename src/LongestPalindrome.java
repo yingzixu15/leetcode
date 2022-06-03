@@ -1,19 +1,27 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class LongestPalindrome {
     public int longestPalindrome(String s) {
-        Map<Character, Boolean> frequencyMap = new HashMap<>();
+        Boolean[] evenFrequency = new Boolean[52];
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if (frequencyMap.containsKey(c)) {
-                frequencyMap.put(c, !frequencyMap.get(c));
+            int index;
+            if (c >= 'a' && c <= 'z') {
+                index = c - 'a';
             } else {
-                frequencyMap.put(c, false);
+                index = 26 + c - 'A';
             }
+            if (evenFrequency[index] == null)
+                evenFrequency[index] = false;
+            else evenFrequency[index] = !evenFrequency[index];
         }
-        int oddCount = frequencyMap.entrySet().stream().filter(p -> !p.getValue()).collect(Collectors.toList()).size();
+        int oddCount = 0;
+        for (Boolean b: evenFrequency) {
+            if (b != null && !b)
+                oddCount++;
+        }
         if (oddCount == 0)
             return s.length();
         else return s.length() - oddCount + 1;
