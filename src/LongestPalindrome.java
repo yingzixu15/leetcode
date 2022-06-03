@@ -1,7 +1,3 @@
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.stream.Collectors;
-
 public class LongestPalindrome {
     public int longestPalindrome(String s) {
         Boolean[] evenFrequency = new Boolean[52];
