@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class LongestPalindromeSubstring {
     public String longestPalindrome(String s) {
         int bestStart = -1;
