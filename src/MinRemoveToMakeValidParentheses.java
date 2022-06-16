@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class MinRemoveToMakeValidParentheses {
     public String minRemoveToMakeValid(String s) {
