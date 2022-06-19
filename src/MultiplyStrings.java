@@ -1,10 +1,8 @@
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class MultiplyStrings {
     public String multiply(String num1, String num2) {
-        StringBuilder stringBuilder = new StringBuilder();
         if (num1.equals("0") || num2.equals("0"))
             return "0";
         if (num1.length() <= num2.length())
