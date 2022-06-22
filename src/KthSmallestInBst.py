@@ -7,7 +7,7 @@ class TreeNode:
         self.left = left
         self.right = right
         
-class Solution:
+class KthSmallestInBst:
     def __init__(self):
         self.count = 0
         self.result = -1
