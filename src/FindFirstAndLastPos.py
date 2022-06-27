@@ -12,13 +12,16 @@ class Solution:
             if nums[mid] < target:
                 return binary_search(mid + 1, end)
             else:
-                p1 = mid
-                p2 = mid
-                while p1 > 0 and nums[p1-1] == target:
-                    p1 -= 1
-                while p2 < len(nums) - 1 and nums[p2+1] == target:
-                    p2 += 1
-                return [p1,p2]
+                left = binary_search(start, mid - 1)
+                right = binary_search(mid + 1, end)
+                if left is None and right is None:
+                    return [mid, mid]
+                if left is None:
+                    return [mid, right[1]]
+                if right is None:
+                    return [left[0], mid]
+                else:
+                    return [left[0], right[1]]
         
         pos = binary_search(0, len(nums) - 1)
         if not pos:
