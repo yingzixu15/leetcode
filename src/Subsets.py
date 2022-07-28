@@ -5,7 +5,7 @@ class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         def backtrack(result: List[List[int]], temp_list: List[int], start: int, n: int, k: int):
             if len(temp_list) == k:
-                result.append(temp_list)
+                result.append([item for item in temp_list])
                 return
             for i in range(start, n):
                 temp_list.append(nums[i])
